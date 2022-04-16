@@ -1,6 +1,6 @@
 # from bandits.data.mnist import get_raw_features, get_vae_features, construct_dataset_from_features
 from bandits.algorithms.neural_linear_sampling import NeuralLinearPosteriorSampling#, FullLaplace
-from bandits.algorithms.laplace_sampling import LaplaceSampling
+from bandits.algorithms.laplace_sampling import LaplaceSampling#, LaplaceSamplingKron
 from bandits.core.hyperparams import HyperParams
 from bandits.core.contextual_bandit import run_contextual_bandit
 from bandits.data.data_sampler import sample_mushroom_data
@@ -69,7 +69,7 @@ def main(hessian_structure):
                              initial_pulls=2,
                              reset_lr=True,
                              lr_decay_rate=0.5,
-                             training_freq=1,
+                             update_freq_post=50,
                              training_freq_network=50,
                              training_epochs=100,
                              a0=6,
