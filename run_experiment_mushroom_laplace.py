@@ -8,6 +8,9 @@ import numpy as np
 import time
 import argparse
 
+import sys
+sys.path.insert(0, "../")
+
 file_name = "bandits/data/mushroom.data"
 
 def display_results(algos, opt_rewards, opt_actions, h_rewards, t_init, name):
