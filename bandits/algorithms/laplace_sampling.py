@@ -5,7 +5,7 @@ from __future__ import division
 from __future__ import print_function
 
 from bandits.core.contextual_dataset import ContextualDataset
-from bandits.algorithms.neural_bandit_model import NeuralBanditModel, KronBanditModel
+from bandits.algorithms.neural_bandit_model import NeuralBanditModel #KronBanditModel
 from laplace_dataset import LaplaceDataset, get_dataset
 import numpy as np
 import torch
