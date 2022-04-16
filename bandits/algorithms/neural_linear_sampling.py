@@ -47,7 +47,7 @@ class NeuralLinearPosteriorSampling():
         self.b = [self._b0 for _ in range(self.hparams.num_actions)]
 
         # Regression and NN Update Frequency
-        self.update_freq_lr = hparams.training_freq
+        self.update_freq_lr = hparams.update_freq_post
         self.update_freq_nn = hparams.training_freq_network
 
         self.t = 0
