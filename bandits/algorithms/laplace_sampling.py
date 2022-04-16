@@ -6,7 +6,7 @@ from __future__ import print_function
 
 from bandits.core.contextual_dataset import ContextualDataset
 from bandits.algorithms.neural_bandit_model import NeuralBanditModel
-from utils import LaplaceDataset, get_dataset
+from laplace_dataset import LaplaceDataset, get_dataset
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
