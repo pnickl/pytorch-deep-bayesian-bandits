@@ -3,7 +3,7 @@ class HyperParams(object):
     def __init__(self, num_actions, context_dim, init_scale, layer_sizes,
                  batch_size, activate_decay, initial_lr, max_grad_norm,
                  show_training, freq_summary, buffer_s, initial_pulls, reset_lr,
-                 lr_decay_rate, training_freq, training_freq_network, training_epochs,
+                 lr_decay_rate, update_freq_post, training_freq_network, training_epochs,
                  a0, b0, lambda_prior, keep_prob, global_step, base_lr, mode):
         self.num_actions = num_actions
         self.context_dim = context_dim
@@ -20,7 +20,7 @@ class HyperParams(object):
         self.initial_pulls = initial_pulls
         self.reset_lr = reset_lr
         self.lr_decay_rate = lr_decay_rate
-        self.training_freq = training_freq
+        self.update_freq_post = update_freq_post
         self.training_freq_network = training_freq_network
         self.training_epochs = training_epochs
         self.a0 = a0
