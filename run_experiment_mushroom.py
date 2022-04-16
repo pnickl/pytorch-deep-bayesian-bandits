@@ -66,7 +66,7 @@ def main():
                              initial_pulls=2,
                              reset_lr=True,
                              lr_decay_rate=0.5,
-                             training_freq=1,
+                             update_freq_post=1,
                              training_freq_network=50,
                              training_epochs=100,
                              a0=6,
