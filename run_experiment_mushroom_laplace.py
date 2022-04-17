@@ -95,6 +95,8 @@ def main(algo):
         algos = [LaplaceSampling('FullLaplace', hp_nlinear)]
     elif algo == 'neurallinear':
         algos = [NeuralLinearPosteriorSampling('NeuralLinear', hp_nlinear)]
+    elif algo == 'random':
+        algos = [LaplaceSampling('Random', hp_nlinear)]
     t_init = time.time()
 
     # run contextual bandit experiment
