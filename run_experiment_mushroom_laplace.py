@@ -38,7 +38,7 @@ def display_results(algos, opt_rewards, opt_actions, h_rewards, t_init, name):
   print('---------------------------------------------------')
   print('---------------------------------------------------')
 
-def main(hessian_structure):
+def main(algo):
     data_type = 'mushroom'
 
     # vae_data = get_vae_features()
@@ -87,12 +87,14 @@ def main(hessian_structure):
     # algos = [NeuralLinearPosteriorSampling('NeuralLinear', hp_nlinear)]#, FullLaplacePosteriorSampling)]
     # algos = [LaplaceSamplingKron('KronLaplace', hp_nlinear)]#, LaplaceSampling('DiagLaplace', hp_nlinear)]#, NeuralLinearPosteriorSampling('NeuralLinear', hp_nlinear)]#, NeuralLinearPosteriorSampling('NeuralLinear', hp_nlinear)]#, FullLaplacePosteriorSampling)]
 
-    if hessian_structure == 'diag':
+    if algo == 'diag':
         algos = [LaplaceSampling('DiagLaplace', hp_nlinear)]
-    elif hessian_structure == 'kron':
+    elif algo == 'kron':
         algos = [LaplaceSampling('KronLaplace', hp_nlinear)]
-    elif hessian_structure == 'full':
+    elif algo == 'full':
         algos = [LaplaceSampling('FullLaplace', hp_nlinear)]
+    elif algo == 'neurallinear':
+        algos = [NeuralLinearPosteriorSampling('NeuralLinear', hp_nlinear)]
     t_init = time.time()
 
     # run contextual bandit experiment
@@ -107,7 +109,7 @@ def main(hessian_structure):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--hessian_structure', default='full', type=str) # diag, kron, full
+    parser.add_argument('--algo', default='diag', type=str) # diag, kron, full
     args = parser.parse_args()
 
-    main(args.hessian_structure)
+    main(args.algo)
