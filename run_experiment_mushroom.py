@@ -8,6 +8,9 @@ import torch
 import time
 
 
+import sys
+sys.path.insert(0, "../")
+
 file_name = "bandits/data/mushroom.data"
 
 def display_results(algos, opt_rewards, opt_actions, h_rewards, t_init, name):
@@ -42,7 +45,7 @@ def main():
     # features, rewards, opt_vals = construct_dataset_from_features(vae_data)
     # dataset = np.hstack((features, rewards))
 
-    num_contexts = 2000
+    num_contexts = 15000
     dataset, opt_mushroom = sample_mushroom_data(file_name, num_contexts)
     opt_rewards, opt_actions = opt_mushroom
 
@@ -55,7 +58,7 @@ def main():
     hp_nlinear = HyperParams(num_actions=num_actions,
                              context_dim=context_dim,
                              init_scale=0.3,
-                             layer_sizes=[50],
+                             layer_sizes=[32, 32, 32],
                              batch_size=512,
                              activate_decay=True,
                              initial_lr=0.005,
@@ -66,7 +69,7 @@ def main():
                              initial_pulls=2,
                              reset_lr=True,
                              lr_decay_rate=0.5,
-                             update_freq_post=1,
+                             update_freq_post=50,
                              training_freq_network=50,
                              training_epochs=100,
                              a0=6,
