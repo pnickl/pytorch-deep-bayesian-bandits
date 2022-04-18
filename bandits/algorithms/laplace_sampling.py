@@ -59,7 +59,7 @@ class LaplaceSampling():
         if not self.random:
             X_test = context.reshape((1, self.hparams.context_dim))
             # vals2, f_var = self.la._glm_predictive_distribution(torch.from_numpy(X_test).float())
-            vals = self.la.predictive_samples(torch.from_numpy(X_test).float(), n_samples=1)
+            vals = self.la.predictive_samples(torch.from_numpy(X_test).float(), n_samples=10)
             action = np.argmax(torch.mean(vals, axis=0))
         else:
             weights = torch.tensor([0.5, 0.5], dtype=torch.float)  # create a tensor of weights
